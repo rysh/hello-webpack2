@@ -15,4 +15,11 @@ module.exports = {
     path: __dirname + "/dist",
     filename: "[name].bundle.js",
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'commons',
+      filename: 'commons.js',
+      minChunks: 2,
+    }),
+  ],
 };
