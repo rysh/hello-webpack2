@@ -1,9 +1,9 @@
 'use strict';
-
+const path = require('path');
 const webpack = require("webpack");
 
 module.exports = {
-  context: __dirname + "/src",
+  context: path.resolve(__dirname, './src'),
   entry: {
     // app: "./app.js",
     // app: ['./app.js', './events.js', './vendor.js'],
@@ -12,8 +12,12 @@ module.exports = {
     contact: './vendor.js',
   },
   output: {
-    path: __dirname + "/dist",
     filename: "[name].bundle.js",
+    path: path.resolve(__dirname, './src'),
+    publicPath: '/assets',                          // New
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './src'),  // New
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
