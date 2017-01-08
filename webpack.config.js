@@ -4,6 +4,22 @@ const webpack = require("webpack");
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ['es2015'] }
+        }],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      // Loaders for other file types can go here
+    ],
+  },
   entry: {
     // app: "./app.js",
     // app: ['./app.js', './events.js', './vendor.js'],
