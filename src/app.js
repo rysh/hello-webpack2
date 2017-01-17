@@ -1,6 +1,7 @@
 'use strict';
 import moment from 'moment';
 import styles from '../assets/stylesheets/application.css';
+@import "~normalize.css";
 
 var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
 console.log( rightNow );
